@@ -7,7 +7,7 @@ services:
       dockerfile: Gateway.Service/Dockerfile
     networks:
       BackEnd:
-        ipv4_address: 127.0.0.10
+        ipv4_address: 172.28.0.10
   rabbitmq:
     container_name: RabbitMQ.Service
     image: rabbitmq:3-management
@@ -19,7 +19,7 @@ services:
       - "15672:15672"
     networks:
       BackEnd:
-        ipv4_address: 127.0.0.20
+        ipv4_address: 172.28.0.20
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
       - rabbitmq_logs:/var/log/rabbitmq
@@ -34,7 +34,7 @@ services:
       - "5432:5432"
     networks:
       BackEnd:
-        ipv4_address: 127.0.0.30
+        ipv4_address: 172.28.0.30
     volumes:
       - postgres_data:/var/lib/postgresql/MAJOR/docker
 volumes:
@@ -47,4 +47,5 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 127.0.0.0/16
+        - subnet: 172.28.0.0/16
+          gateway: 172.28.0.1
