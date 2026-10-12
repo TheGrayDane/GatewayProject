@@ -8,6 +8,11 @@ services:
     networks:
       BackEnd:
         ipv4_address: 172.28.0.10
+    depends_on:
+      postgres:
+        condition: service_started
+      rabbitmq:
+        condition: service_started
   rabbitmq:
     container_name: RabbitMQ.Service
     image: rabbitmq:3-management

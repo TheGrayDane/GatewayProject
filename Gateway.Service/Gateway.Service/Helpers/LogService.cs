@@ -11,7 +11,7 @@ namespace Gateway.Service.Helpers
         {
             var factory = new ConnectionFactory
             {
-                HostName = "172.18.0.2",
+                HostName = "rabbitmq",
                 Port = 5672,
                 UserName = "TheGrayDane",
                 Password = "!2HoppeBolde"
